@@ -15,12 +15,15 @@ app.use(cors());
 
 // --- Configuração do Transporte de E-mail (Nodemailer) ---
 const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com', 
-    port: 465,              
-    secure: true,           
+    host: 'smtp.gmail.com',
+    port: 587,              // Porta padrão para STARTTLS (mais aceita em nuvem)
+    secure: false,          // Deve ser false para porta 587
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
+    },
+    tls: {
+        rejectUnauthorized: false // Ajuda a evitar erros de certificado no Render
     }
 });
 
