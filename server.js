@@ -8,7 +8,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// --- Configuração BREVO (Porta 465 - SSL Forçado) ---
 // Essa configuração evita o Timeout do Render
 const transporter = nodemailer.createTransport({
     host: 'smtp-relay.brevo.com',
